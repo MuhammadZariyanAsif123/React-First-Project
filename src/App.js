@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { usestate } from 'react';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function App() {
+export default function App() 
+{
+  const [text, upperCase] = usestate('Enter Text here');
+  upperCase('ABCD');
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-light">
@@ -43,15 +47,16 @@ export default function App() {
           </div>
         </div>
       </nav>
+      <h2>Enter the text to analyze below </h2>
       <br></br>
       <div>
-        <textarea className="form-control" rows="8"></textarea>
+        <textarea className="form-control" value={text} rows="8"></textarea>
       </div>
       <button type="button" className="btn btn-primary">
-        Click Me
+        Convert to Upper Case
       </button>
       <button type="button" className="btn btn-success m-2">
-        Increment
+        Convert to Lower Case
       </button>
     </>
   );
